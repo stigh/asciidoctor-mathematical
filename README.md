@@ -58,7 +58,7 @@ If you experience any compilation errors (caused by Mathematical) try running:
 #### Ubuntu
 `sudo apt-get -qq -y install bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev fonts-lyx cmake`
 
-#### Fedora 28
+#### Fedora 40 & 41
 
 ```
 sudo dnf --setopt=install_weak_deps=False install -y \
@@ -74,7 +74,9 @@ sudo dnf --setopt=install_weak_deps=False install -y \
   lyx-fonts \
   pango-devel \
   redhat-rpm-config \
-  ruby-devel
+  ruby-devel \
+  jbigkit-devel \
+  liblerc-devel
 ```
 
 The mathematical gem cannot currently be installed on Fedora 29.
