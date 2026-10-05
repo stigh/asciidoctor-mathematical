@@ -7,7 +7,7 @@ on:
 jobs:
   activate:
     if: "!endsWith(github.event.head_commit.message, '[skip ci]')"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
     - name: Proceed
       run: echo ok go
@@ -15,7 +15,7 @@ jobs:
     needs: activate
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-26.04]
         ruby: ['3.2', '3.3', '3.4']
     runs-on: ${{ matrix.os }}
     steps:
@@ -28,8 +28,8 @@ jobs:
     - name: Configure Bundler
       run: bundle config --local path .bundle/gems
     - name: Install system dependencies (Linux)
-      if: matrix.os == 'ubuntu-latest'
-      run: sudo apt-get install bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev fonts-lyx
+      if: startsWith(matrix.os, 'ubuntu')
+      run: sudo apt-get install bison flex libffi-dev libxml2-dev libgdk-pixbuf-2.0-dev libcairo2-dev libpango1.0-dev fonts-lyx
     - name: Install system dependencies (macOS)
       if: matrix.os == 'macos-latest'
       run: brew install cairo gdk-pixbuf pango
