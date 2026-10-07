@@ -18,5 +18,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'asciimath', '~> 2.0'
   # mathematical requires base64 without declaring it (no longer a default gem in Ruby 3.4)
   s.add_runtime_dependency 'base64', '~> 0.1'
+  # asciidoctor requires logger without declaring it (no longer a default gem in Ruby 4.0)
+  s.add_runtime_dependency 'logger', '~> 1.5'
   s.add_development_dependency 'rake', '~> 12.3.0'
 end
