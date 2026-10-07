@@ -6,23 +6,23 @@ on:
 jobs:
   activate:
     if: github.repository == 'asciidoctor/asciidoctor-mathematical'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
     - run: echo ok go
   build:
     needs: activate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
     - name: Checkout
       uses: actions/checkout@v7
     - name: Install Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7'
+        ruby-version: '3.4'
     - name: Configure Bundler
       run: bundle config --local path .bundle/gems
     - name: Install system dependencies
-      run: sudo apt-get install bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev fonts-lyx
+      run: sudo apt-get install bison flex libffi-dev libxml2-dev libgdk-pixbuf-2.0-dev libcairo2-dev libpango1.0-dev fonts-lyx
     - name: Install dependencies
       run: bundle --jobs 3 --retry 3
     - name: Convert sample document
