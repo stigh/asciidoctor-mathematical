@@ -29,5 +29,7 @@ jobs:
       run: bundle config --local path .bundle/gems
     - name: Install dependencies
       run: bundle --jobs 3 --retry 3
+    - name: Run tests
+      run: bundle exec ruby -w $(bundle exec ruby -e 'print File.join Gem.bindir, %q(rake)') spec
     - name: Convert sample document
       run: bundle exec ruby -w $(bundle exec ruby -e 'print File.join Gem.bindir, %q(asciidoctor)') -r asciidoctor-mathematical sample.adoc
