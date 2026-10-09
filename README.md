@@ -2,6 +2,13 @@
 Alternative stem processor for asciidoctor based on
 [Mathematical](https://github.com/gjtorikian/mathematical).
 
+> [!WARNING]  
+> Mathematical now explicitly states its SVG and PNG generation are not maintained [Official Readme](https://github.com/gjtorikian/mathematical/tree/main#%EF%B8%8F-maintenance-status-%EF%B8%8F).
+> Since this project relies solely on its svg/png generation feature, we are no longer
+> safely guarded. Thus this project now retains a best effort legacy support. Users
+> shall consider more capable and maintained solutions such as
+>  [asciidoctor-pdf-mathjax](https://github.com/Crown0815/asciidoctor-pdf-mathjax).
+
 ## Features
 
 asciidoctor-mathematical processes `latexmath` and `stem` blocks and inline
